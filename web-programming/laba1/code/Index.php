@@ -227,3 +227,61 @@ function sumDigits($num) {
 $number = 12345;
 echo "\nCуммирования цифр числа:";
 echo sumDigits($number). "\n";
+
+/*arrays*/
+//Заполнение массива 'x', 'xx', 'xxx' и так далее
+$array1 = [];
+for ($i = 1; $i <= 5; $i++) {
+    $array1[] = str_repeat('x', $i);
+}
+print_r($array1);
+
+//Функция arrayFill
+function arrayFill($value, $length) {
+    $array = [];
+    for ($i = 0; $i < $length; $i++) {
+        $array[] = $value;
+    }
+    return $array;
+}
+
+print_r(arrayFill('x', 5));
+
+//Cумма элементов двумерного массива
+$twoDimensionalArray = [[1, 2, 3], [4, 5], [6]];
+$sum = array_sum(array_map('array_sum', $twoDimensionalArray));
+echo "Сумма элементов двумерного массива: $sum\n";
+
+//Создание массива [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+$array2 = [];
+$num = 1;
+for ($i = 0; $i < 3; $i++) {
+    for ($j = 0; $j < 3; $j++) {
+        $array2[$i][$j] = $num++;
+    }
+}
+print_r($array2);
+
+//Умножение и сложение элементов массива
+$arr = [2, 5, 3, 9];
+$result = ($arr[0] * $arr[1]) + ($arr[2] * $arr[3]);
+echo "Результат: $result\n";
+
+//Вывод фамилии, имени и отчества
+$user = ['name' => 'Anna', 'surname' => 'Aleksenko', 'patronymic' => 'Vadimovna'];
+echo $user['surname'] . ' ' . $user['name'] . ' ' . $user['patronymic'] . "\n";
+
+//Вывод текущей даты
+$date = ['year' => date('Y'), 'month' => date('m'), 'day' => date('d')];
+echo "{$date['year']}-{$date['month']}-{$date['day']}\n";
+
+//Вывод количества элементов в массиве
+$arr = ['a', 'b', 'c', 'd', 'e'];
+echo "Количество элементов в массиве: " . count($arr) . "\n";
+
+//Вывод последнего и предпоследнего элементов массива
+echo "Последний элемент: " . end($arr) . "\n";
+prev($arr);
+echo "Предпоследний элемент: " . current($arr) . "\n";
+
+
