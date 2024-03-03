@@ -24,15 +24,17 @@ $floatVar = 3.1415926535;
 echo $floatVar;
 
 
+echo "\n";
+
 echo 10 + 2;
 
 
 $last_month = 1187.23;
 $this_month = 1089.98;
 $expenses_difference = $last_month - $this_month;
-echo  "\n Разницы между расходами в прошлом месяце и в этом месяце составила: $expenses_difference";
+echo  "\nРазницы между расходами в прошлом месяце и в этом месяце составила: $expenses_difference";
 
-/* №11 multiplication and division*/
+/*multiplication and division*/
 
 $num_languages = 4;
 
@@ -44,7 +46,24 @@ $days = $months * 16;
 
 $days_per_language = $days / $num_languages;
 
-echo "\n  Количество дней которое в среднем у нее ушло на изучение каждого языка: $days_per_language";
+echo "\nКоличество дней которое в среднем у нее ушло на изучение каждого языка: $days_per_language";
 /*Power*/
 
+echo "\n";
+
 echo 8 ** 2;
+
+/*Assignment Operators*/
+$my_num = 21;
+$answer = $my_num;
+$answer += 2;
+$answer *= 2;
+$answer -= 2;
+$answer /= 2;
+$answer -= $my_num;
+
+echo "\n";
+
+echo $answer;
+
+
