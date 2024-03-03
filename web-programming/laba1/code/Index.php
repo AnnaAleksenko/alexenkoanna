@@ -284,4 +284,53 @@ echo "Последний элемент: " . end($arr) . "\n";
 prev($arr);
 echo "Предпоследний элемент: " . current($arr) . "\n";
 
+/*if else construct*/
+
+function checkSum($num1, $num2): bool {
+    $sum = $num1 + $num2;
+    if ($sum > 10) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+$result = checkSum(68,39);
+
+// func 2
+function checkEqual($num1, $num2): bool {
+    if ($num1 == $num2) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+$result = checkEqual(9,9);
+
+$test = 0;
+//Сокращенная форма условия
+if ($test == 0) echo 'верно' . "\n";
+
+// Проверка числа и сумма его цифр
+$age = 57;
+if ($age < 10 || $age > 99) {
+    echo "Число не попадает в диапазон от 10 до 99\n";
+} else {
+    $sum = array_sum(str_split($age));
+    if ($sum <= 9) {
+        echo "Сумма цифр однозначна\n";
+    } else {
+        echo "Сумма цифр двузначна\n";
+    }
+}
+
+// Проверка массива на количество элементов и вывод суммы
+$arr = [2, 5, 3];
+if (count($arr) == 3) {
+    echo "Сумма элементов массива: " . array_sum($arr) . "\n";
+}
+
 
