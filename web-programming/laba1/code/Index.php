@@ -342,4 +342,25 @@ for ($i = 1; $i <= 20; $i++) {
     echo "\n";
 }
 
+/*Combination of functions*/
+//1
+$numbers = [5, 10, 15, 20];
+$average = array_sum($numbers) / count($numbers);
+echo $average. "\n";
+//2
+$sum = (1 + 100) * 100 / 2;
+echo $sum. "\n";
+//3
+$numbers = [4, 9, 16, 25];
+$squareRoots = array_map('sqrt', $numbers);
+print_r($squareRoots);
+//4
+$alphabet = range('a', 'z');
+$numbers = range(1, 26);
+$result = array_combine($alphabet, $numbers);
+print_r($result);
+//5
+$str = '1234567890';
+$sum = array_sum(str_split($str, 2));
+echo $sum. "\n";
 
