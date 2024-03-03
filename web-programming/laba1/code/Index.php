@@ -13,6 +13,8 @@ $order .= " and  large fries";
 echo "\nYour order is: $very_bad_unclear_name.";
 
 /* №2 */
+echo "\n";
+
 $integerVar = 21;
 echo $integerVar;
 
@@ -65,6 +67,7 @@ $answer -= $my_num;
 echo "\n";
 
 echo $answer;
+
 /*Mathematical functions*/
 
 // Работа с %
@@ -166,4 +169,61 @@ foreach ($array_to_sum as $element) {
 }
 echo "\nСумма первых $count_elements элементов массива больше 10.";
 
+/*Functions*/
+/*1*/
+function printStringReturnNumber($str) {
+    echo "\n$str";
+    return 21;
+}
 
+$my_num = printStringReturnNumber("Printing...");
+echo "\n$my_num";
+
+/*2*/
+
+// Функция increaseEnthusiasm()
+function increaseEnthusiasm($str) {
+    return $str . "!";
+}
+
+// Функция repeatThreeTimes()
+function repeatThreeTimes($str) {
+    return $str . $str . $str;
+}
+
+// Функция cut()
+function cut($str, $length = 10) {
+    return substr($str, 0, $length);
+}
+
+// Вывод результатов
+echo increaseEnthusiasm("anna") . "\n";
+echo repeatThreeTimes("alexenko") . "\n";
+echo increaseEnthusiasm(repeatThreeTimes("alex7")) . "\n";
+echo cut("Typically we are going to cut it right now ", 5) . "\n";
+
+// Рекурсивная функция для вывода элементов массива
+function printArrayRecursively($arr, $index = 0) {
+    if ($index < count($arr)) {
+        echo $arr[$index] . "\n";
+        printArrayRecursively($arr, $index + 1);
+    }
+}
+
+$array = [1, 2, 3, 4, 5];
+printArrayRecursively($array);
+
+// Функция для суммирования цифр числа
+function sumDigits($num) {
+    $sum = array_sum(str_split($num));
+    if ($sum > 9) {
+        return sumDigits($sum);
+    } else {
+        return $sum;
+    }
+}
+
+//суммирования цифр числа
+$number = 12345;
+echo "\nCуммирования цифр числа:";
+echo sumDigits($number). "\n";
