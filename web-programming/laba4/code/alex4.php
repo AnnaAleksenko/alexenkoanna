@@ -41,7 +41,49 @@
         </tr>
         </thead>
         <tbody>
-        
+        <?php
+        require __DIR__ . '/vendor/autoload.php'; // Подключаем Google API Client Library
+
+        $client = new \Google_Client();
+        $client->setApplicationName('The Bulletin Board');
+        $client->setScopes(['https://www.googleapis.com/auth/spreadsheets']);
+        $client->setAccessType('offline');
+        $path = __DIR__ . '/credentials.json';
+        $client->setAuthConfig($path);
+
+        // Конфигурируем Sheets Service
+        $service = new Google\Service\Sheets($client);
+
+        // Идентификатор таблицы
+        $spreadsheetId = '1uwQI4ppiPoQWETs3BOu_1hsBcfc-Ll6l5zhWyZI1I_g';
+
+        // Определение диапазона для записи
+        $range = 'Sheet1!A:D';
+
+        $service = new Google_Service_Sheets($client);
+        $response = $service->spreadsheets_values->get($spreadsheetId, $range);
+        $values = $response->getValues();
+
+        // Отображение данных в виде таблицы
+        if (!empty($values)) {
+            $isFirstRow = true; // Флаг для определения первой строки
+            foreach ($values as $row) {
+                if ($isFirstRow) {
+                    $isFirstRow = false;
+                    continue; // Пропускаем первую строку
+                }
+                echo '<tr>';
+                foreach ($row as $cell) {
+                    echo '<td>' . htmlspecialchars($cell) . '</td>';
+                }
+                echo '</tr>';
+            }
+        } else {
+            echo 'Пусто.';
+        }
+        ?>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
