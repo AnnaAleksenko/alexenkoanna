@@ -5,7 +5,6 @@ using namespace std;
 
 int main()
 {
-#include <time.h>
 	int a = 10;
 	int i;
 	int b = 1;
